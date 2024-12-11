@@ -1,0 +1,53 @@
+package com.handsonjava.customer.entity;
+
+import jakarta.persistence.*;
+import lombok.*;
+
+import java.util.Date;
+
+@Entity
+@Getter
+@Setter
+@ToString
+@NoArgsConstructor
+@AllArgsConstructor
+public class CustomerData {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "customer_id")
+    private int customerId;
+
+    @Column(name = "customer_name")
+    private String customerName;
+
+    @Column(name = "customer_email")
+    private String customerEmail;
+
+    @Column(name = "customer_address")
+    private String customerAddress;
+
+    @Column(name = "customer_phone")
+    private String customerPhone;
+
+    @Column(name = "customer_city")
+    private String customerCity;
+
+    @Column(name = "customer_state")
+    private String customerState;
+
+    @Column(name = "customer_zipcode")
+    private String customerZipcode;
+
+    @Column(name = "customer_created_at")
+    private Date createdAt;
+
+    @Column(name = "customer_updated_at")
+    private Date updatedAt;
+
+    @Column(name = "customer_created_by")
+    private String createdBy;
+
+    @Column(name = "customer_updated_by")
+    private String updatedBy;
+}
