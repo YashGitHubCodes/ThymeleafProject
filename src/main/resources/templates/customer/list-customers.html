@@ -1,11 +1,13 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
     <title>Customer List</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 <body>
 
@@ -13,9 +15,10 @@
     <h3> Customer List</h3>
     <hr>
 
-
     <a th:href="@{/customer/showFormForAdd}" class="btn btn-primary btn-sm mb-3">Add Customer</a>
-
+    <form action="#" th:action="@{/logout}" method="POST">
+        <input type="submit" value="Logout" class="btn btn-info col-2">
+    </form>
 
 
     <table class="table table-bordered table-striped">
@@ -32,7 +35,7 @@
         </tr>
         </thead>
         <tbody>
-        <tr th:each="customerDto : ${customer} " >
+        <tr th:each="customerDto : ${customer} ">
             <td th:text="${customerDto.customerName}"></td>
             <td th:text="${customerDto.customerEmail}"></td>
             <td th:text="${customerDto.customerAddress}"></td>
@@ -43,15 +46,17 @@
 
             <!-- Add update button Link-->
             <td>
-                <a th:href = "@{/customer/showformForUpdate(customerId=${customerDto.customerId})}"
-                class  ="btn btn-info btn -sm">Update</a>
+                <a th:href="@{/customer/showformForUpdate(customerId=${customerDto.customerId})}"
+                   class="btn btn-info btn -sm">Update</a>
             </td>
 
-            <!-- Add delete button Link-->
+
             <td>
-                <a th:href = "@{/customer/delete(customerId=${customerDto.customerId})}"
-                class  ="btn btn-danger btn -sm"
-                onclick="if(!(confirm('Are you sure you want to delete this customer?'))) return false">
+
+                <!-- Add delete button Link-->
+                <a th:href="@{/customer/delete(customerId=${customerDto.customerId})}"
+                   class="btn btn-danger btn -sm"
+                   onclick="if(!(confirm('Are you sure you want to delete this customer?'))) return false">
                     Delete
                 </a>
             </td>
@@ -60,5 +65,6 @@
         </tbody>
     </table>
 </div>
+
 </body>
 </html>

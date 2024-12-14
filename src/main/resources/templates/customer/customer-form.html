@@ -15,49 +15,22 @@
 
     <form th:action="@{/customer/save}" method="POST" th:object="${customer}">
         <input type="text" th:field="*{customerName}" class="form-control mb-4 col-4" placeholder="Customer Name">
+        <input type="text" th:field="*{customerAddress}" class="form-control mb-4 col-4" placeholder="Customer Address">
         <input type="text" th:field="*{customerEmail}" class="form-control mb-4 col-4" placeholder="Customer Email">
         <input type="text" th:field="*{customerPhone}" class="form-control mb-4 col-4" placeholder="Customer Phone">
         <input type="text" th:field="*{customerCity}" class="form-control mb-4 col-4" placeholder="Customer City">
         <input type="text" th:field="*{customerState}" class="form-control mb-4 col-4" placeholder="Customer State">
         <input type="text" th:field="*{customerZipcode}" class="form-control mb-4 col-4" placeholder="Customer Zip Code">
         <button type="submit" class="btn btn-info col-2">Save Customer</button>
+
+        <div th:if="${errorMessage}" class="alert alert-danger col-4">
+            <span th:text="${errorMessage}"></span>
+        </div>
+
+
     </form>
     <hr>
     <a th:href="@{/customer/list}">Back to Customer List</a>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 </div>

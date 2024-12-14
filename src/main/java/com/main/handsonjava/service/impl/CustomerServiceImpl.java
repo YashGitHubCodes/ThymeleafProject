@@ -81,4 +81,7 @@ public class CustomerServiceImpl implements ICustomerService {
         Optional<CustomerEntity> optionalCustomer = customerRepository.findById(customerId);
         return optionalCustomer.map(entity -> CustomerMapper.mapToCustomerDto(entity, new CustomerDto())).orElseThrow(() -> new CustomerNotFoundException("Customer id not found - " + customerId));
     }
+
+
+
 }

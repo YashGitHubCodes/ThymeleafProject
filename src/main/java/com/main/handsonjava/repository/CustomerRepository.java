@@ -11,6 +11,7 @@ import java.util.Optional;
 public interface    CustomerRepository extends JpaRepository<CustomerEntity, Integer> {
 
     Optional<CustomerEntity> findByCustomerPhone(String customerPhone);
-    public List<CustomerEntity> findAllByOrderByCustomerNameAsc();
+    List<CustomerEntity> findAllByOrderByCustomerNameAsc();
+
 
 }
